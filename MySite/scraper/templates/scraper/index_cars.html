@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Cars | Scraper</title>
+	<meta charset= "UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1">
+	<meta name="author" content="Larry Georges">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="{% static 'scraper/style.css' %}" />
+</head>
+
+<body>
+
+	<!-- Navigation bar -->
+	<nav>		
+		<ul>
+			<li class="active"><a href="http://127.0.0.1:8000">Home</a></li>
+			<li><a href="http://127.0.0.1:8000/about/">About</a></li>
+		</ul>
+	</nav>
+	
+	<br />
+
+	<h2 class="header">{{ messsage }}</h2>
+
+	<br />
+	<br />
+	<p>Website scraped from: {{ title_name }}</p>
+
+	<p>Website content: {{ content_info }}
+
+	<p>Number of Cars: <strong>{{ car_counter }}</strong></p>
+	<br />
+	<br />
+
+	<h2 class="header">{{ messsage_2 }}</h2>
+	
+	<br />
+
+	
+	{% for car, car_text in cars_list %}
+	<div class="cars">
+	
+		<h2>{{ car_text }}</h2>
+		<p><img src="{{ car }}" /></p>
+		<p><a href="{{ car }}">{{ car }}</a></p>
+		<br />
+	
+	</div>	
+	{% endfor %}
+	
+
+
+</body>
+
+</html>

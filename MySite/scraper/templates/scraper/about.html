@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>About | Scraper</title>
+	<meta charset= "UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1">
+	<meta name="author" content="Larry Georges">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="{% static 'scraper/style.css' %}" />
+</head>
+
+<body>
+
+	<nav>		
+		<ul>
+			<li><a href="http://127.0.0.1:8000/">Home</a></li>
+			<li class="active"><a href="#">About</a></li>
+		</ul>
+	</nav>
+	
+	<br />
+	
+	<h1 class="header">Django Project</h1>
+	
+	<div id="introduction">
+		{% for name_value, text_value in author_dict.items %}
+			<div class="contentDetail">
+										
+					{% for author_name_value, url_value in author_pics_dict.items %}
+					
+						{% if name_value == author_name_value %}
+					<img class="picsC" src="{{ url_value }}" alt={{ name_value }} title={{ name_value }}>
+						{% endif %}
+						
+					{% endfor %}
+							
+					<section>
+		
+						<div class="myQuotes">
+							<i>
+							
+							{{ text_value }}
+								
+							</i>
+						</div>
+												
+					</section>
+				
+							
+			</div>
+		{% endfor %}
+		</div>
+		
+	<section id="aboutST">
+			
+		<section id="aboutContent">
+		
+				<h1>About</h1>
+				<p>
+					<br />
+					<p>Developer: Larry Georges</p> 
+					<br />
+					<p>Django version 1.10.4</p> 
+					<br />
+					<p>Python version 3.5</p> 
+					<br />
+					<p>Module 1 Required: BeautifulSoup4</p> 
+					<br />
+					<p>Module 2 Required: Requests</p> 
+					<br />
+					<p>~ Scraper Website ~</p> 
+				</p>
+									
+		</section>
+		
+	</section>
+
+
+<script>
+
+
+//div carousel
+var myQuotesIndex3 = 0;
+divCarousel();
+
+function divCarousel() {
+	var i;
+	var x = document.getElementsByClassName("contentDetail");
+	for (i = 0; i < x.length; i++) {
+	x[i].style.display = "none";  
+	}
+	myQuotesIndex3++;
+	if (myQuotesIndex3 > x.length) {myQuotesIndex3 = 1}    
+	x[myQuotesIndex3-1].style.display = "block";  
+	setTimeout(divCarousel, 10000);    
+}
+
+</script>
+	
+</body>
+
+</html>
+
+
+

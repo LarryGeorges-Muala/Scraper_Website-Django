@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Home | Scraper</title>
+	<meta charset= "UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1">
+	<meta name="author" content="Larry Georges">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="{% static 'scraper/style.css' %}" />
+</head>
+
+<body>
+
+	<!-- Navigation bar -->
+	<nav>		
+		<ul>
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="http://127.0.0.1:8000/about/">About</a></li>
+		</ul>
+	</nav>
+	
+	<br />
+
+	<h2 class="header">{{ messsage }}</h2>
+	
+	
+	
+	<br />
+
+	
+	{% for name, link in app_list %}
+	<div class=mainIndex>
+	
+		<h1>{{ name }}</h1>
+		<a href="http://127.0.0.1:8000/{{ link }}">Access Site</a>
+		<br />
+	
+	</div>	
+	{% endfor %}
+	
+
+
+</body>
+
+</html>

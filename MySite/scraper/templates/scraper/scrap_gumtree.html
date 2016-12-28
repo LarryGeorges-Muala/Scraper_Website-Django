@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Python Jobs | Scraper</title>
+	<meta charset= "UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1">
+	<meta name="author" content="Larry Georges">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="{% static 'scraper/style.css' %}" />
+</head>
+
+<body>
+
+	<!-- Navigation bar -->
+	<nav>		
+		<ul>
+			<li class="active"><a href="http://127.0.0.1:8000">Home</a></li>
+			<li><a href="http://127.0.0.1:8000/about/">About</a></li>
+		</ul>
+	</nav>
+	
+	<br />
+
+	<h2 class="headerG">{{ messsage }}</h2>
+	
+	<br />
+
+	<h3>Scrap Status: {{ scrap_message }}</h3>
+
+
+	<br />
+	<br />
+	<p>Website scraped from: {{ title_name }}</p>
+
+	<p>Website content: <strong>{{ content_info }}</strong> jobs</p>
+
+	<p>Website logo: <img src="{{ content_logo_link }}" width="75" height="75" /></p>
+
+	<p>Website logo link: <a href="#">{{ content_logo_link }}</a></p>
+
+	<p>Number of jobs scraped: <strong>{{ job_counter }}</strong></p>
+	<br />
+	<br />
+
+	<h2 class="headerG">{{ messsage_2 }}</h2>
+	<br />
+	
+	<!-- general loop for all details -->
+	{% for title, link, description, location, phone_number, full_description in jobs_general %}
+	<div class="jobs">
+		*
+		<p><strong>Job Title</strong>: {{ title }}</p>
+
+		<ul>
+			<li><strong>Job Link</strong>: <a href="#">{{ link }}</a></li>
+
+			<li><strong>Job Description</strong>: {{ description }}</li>
+
+			<li><strong>Job Location</strong>: {{ location }}</li>
+			
+			<li><strong>Job Phone Number</strong>: {{ phone_number }}</li>
+				
+			<li><strong>Job Full Description</strong>: <br />{{ full_description }}</li>
+		</ul>
+
+		<br />
+	</div>
+	{% endfor %}
+
+</body>
+
+</html>
